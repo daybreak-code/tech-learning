@@ -1,0 +1,13 @@
+server:
+  port: 8000
+
+curator:
+  retry-count: 5
+  sleep-between-retries: 5000
+  connect: 101.200.235.98:2181
+  session-timout: 60000
+  connection-timeout: 5000
+
+test:
+  custom:
+    featureToggle: 111
