@@ -2,20 +2,21 @@ package com.llm.algorithm.course;
 
 public class MatchStr {
     public int strStr(String haystack, String needle){
-        if(needle.isEmpty()) return 0;
-        int n = haystack.length(), m = needle.length();
+        if (needle == null || needle.isEmpty()) return 0;
+        int m = needle.length();int n = haystack.length();
         int[] lps = new int[m];
-        for (int i = 1, len = 0; i < m;){
-            if(needle.charAt(i) == needle.charAt(len)){
+        for (int i = 1,len = 0; i < m;){
+            if (needle.charAt(i) == needle.charAt(len)){
                 lps[i++] = ++len;
-            } else if(len > 0){
+            } else if (len > 0){
                 len = lps[len - 1];
             } else {
                 lps[i++] = 0;
             }
         }
+
         for (int i = 0, j = 0; i < n;){
-            if(haystack.charAt(i) == needle.charAt(j)){
+            if (haystack.charAt(i) == needle.charAt(j)){
                 i++;j++;
                 if (j == m) return i - j;
             } else if (j > 0){
